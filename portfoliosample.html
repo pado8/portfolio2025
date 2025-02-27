@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">AQUA</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-1 text-center">
+        <h3 class="margin">AQUA의 Portfolio</h3>
+        <img src="img/profile.jpg" class="img-circle" alt="profile">
+        <h3 class="text">발전하는 개발자 AQUA의 포트폴리오입니다.</h3>
+    </div>
+
+    <div id="about" class="container-fluid bg-2 text-center">
+        <h3 class="margin">저를 소개합니다.</h3>
+        <p>프론트엔드에서 풀스택으로, 한 걸음 더 성장하는 프로그래머입니다.</p>
+        <a href="https://github.com/pado8" target="_blank" class="btn btn-default btn-lg">My github</a>
+    </div>
+
+    <div id="portfolio" class="container-fluid bg-3 text-center">
+        <h3 class="margin">Portfolio</h3>
+        <h2>Toy Project</h2>
+        <div class="row">
+            <div class="col-sm-3">
+                <p>테슬라 사이버트럭 홍보 페이지</p>
+                <a href="https://aquapado.com/brandpage/"
+                    target="_blank"><img src="img/project1.jpg" class="img-responsive" style="width:100%"
+                        alt="Image"></a>
+                <div>
+                    적용 기술 - html, css, 동영상배경, transition, animation
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <p>쿠팡이츠 데모</p>
+                <a href="https://aquapado.com/coupangeats/" target="_blank"><img src="img/project2.jpg"
+                        class="img-responsive" style="width:100%" alt="Image"></a>
+                <div class="">
+                    적용 기술 - html, css, bootstrap, 반응형
+                </div>
+
+                <!-- 모달 --------------------------------------------------------------------------------->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">More</button>
+
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">개발 내용</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    html5, css3를 기반으로 bootstrap4을 사용해서 respoinsive web을 구현했습니다.
+                                    <br>
+                                    bootstrap을 사용해서 빠르게 개발할 수 있었고, media query 사용법이 중요하다는 것을 배웠습니다.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="https://aquapado.com/coupangeats/" target="_blank" class="btn btn-default">View</a>
+                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">View</button> -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /모달 -->
+
+            </div>
+            <div class="col-sm-3">
+                <p>브랜드 클론 데모 페이지</p>
+                <img src="img/project3.jpg" class="img-responsive" style="width:100%" alt="Image">
+            </div>
+            <div class="col-sm-3">
+                <p>팀 파이널 프로젝트 React + Java 페이지</p>
+                <img src="img/project4.jpg" class="img-responsive" style="width:100%" alt="Image">
+            </div>
+        </div>
+        <h2>Team Project</h2>
+        <div class="row">
+            <div class="col-sm-4">
+                <p>Mini project1 - 부트캠프 적용 포트폴리오 페이지</p>
+                <img src="img/project5.jpg" class="img-responsive" style="width:100%" alt="Image">
+            </div>
+            <div class="col-sm-4">
+                <p>Mini project2 - 브랜드 클론 데모 페이지</p>
+                <img src="img/project3.jpg" class="img-responsive" style="width:100%" alt="Image">
+            </div>
+            <div class="col-sm-4">
+                <p>Final project 팀 파이널 프로젝트 React + Java 페이지</p>
+                <img src="img/project4.jpg" class="img-responsive" style="width:100%" alt="Image">
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="container-fluid bg-4 text-center">
+        <h3 class="margin">연락처</h3>
+        <p>카톡ID : pado8</p>
+        <p>이메일 : floe9235@gmail.com</p>
+    </div>
+
+    <footer class="container-fluid bg-5 text-center">
+        Copyright &copy; All rights reserved by AQUA
+    </footer>
+
+
+</body>
+
+</html>

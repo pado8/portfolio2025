@@ -1,140 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <title>스크롤 인터랙션</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/locomotive-scroll/4.1.0/locomotive-scroll.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="js/main.js"></script>
 
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; overflow-x: hidden; background: black}
+        .section { height: 100vh; display: flex; align-items: center; justify-content: center; }
+        
+        /* 첫 번째 섹션 - 글자 크기 증가 */
+        #section1 { background: black; color: white; font-size: 2rem; }
+        #section2 { background: black; color: white; font-size: 2rem; }
+        #section3 { background: black; color: white; font-size: 2rem; }
+        #growing-text2 {opacity: 0;}
+        #growing-text3 {opacity: 0;}
+        /* 두 번째 섹션 - 가로 스크롤 */
+        #horizontal-section { height: 100vh; display: flex; align-items: center; overflow: hidden; }
+        .horizontal-wrapper { display: flex; width: 400vw; }
+        .horizontal-item { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+        
+        /* 세 번째 섹션 - 마우스 효과 */
+        #mouse-effect { position: relative; background: #222; color: white; overflow: hidden; }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, rgba(0,0,0,0.9) 80%); pointer-events: none; }
+        
+        /* 네 번째 섹션 - 스크롤 스냅 */
+        #scroll-snap-container { scroll-snap-type: y mandatory; overflow-y: scroll; height: 100vh; }
+        .snap-section { scroll-snap-align: start; height: 100vh; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+    </style>
 </head>
-
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">AQUA</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container-fluid bg-1 text-center">
-        <h3 class="margin">AQUA의 Portfolio</h3>
-        <img src="img/profile.jpg" class="img-circle" alt="profile">
-        <h3 class="text">발전하는 개발자 AQUA의 포트폴리오입니다.</h3>
+    
+    <!-- 첫 번째 섹션 -->
+    <div id="section1" class="section">
+        <h1 id="growing-text1">Hello World!</h1>
     </div>
-
-    <div id="about" class="container-fluid bg-2 text-center">
-        <h3 class="margin">저를 소개합니다.</h3>
-        <p>프론트엔드에서 풀스택으로, 한 걸음 더 성장하는 프로그래머입니다.</p>
-        <a href="https://github.com/pado8" target="_blank" class="btn btn-default btn-lg">My github</a>
+    <div id="section2" class="section">
+        <h1 id="growing-text2">프론트엔드 개발자로 시작해, 이제는</h1>
     </div>
-
-    <div id="portfolio" class="container-fluid bg-3 text-center">
-        <h3 class="margin">Portfolio</h3>
-        <h2>Toy Project</h2>
-        <div class="row">
-            <div class="col-sm-3">
-                <p>테슬라 사이버트럭 홍보 페이지</p>
-                <a href="https://aquapado.com/brandpage/"
-                    target="_blank"><img src="img/project1.jpg" class="img-responsive" style="width:100%"
-                        alt="Image"></a>
-                <div>
-                    적용 기술 - html, css, 동영상배경, transition, animation
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <p>쿠팡이츠 데모</p>
-                <a href="https://aquapado.com/coupangeats/" target="_blank"><img src="img/project2.jpg"
-                        class="img-responsive" style="width:100%" alt="Image"></a>
-                <div class="">
-                    적용 기술 - html, css, bootstrap, 반응형
-                </div>
-
-                <!-- 모달 --------------------------------------------------------------------------------->
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">More</button>
-
-                <div id="myModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">개발 내용</h4>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    html5, css3를 기반으로 bootstrap4을 사용해서 respoinsive web을 구현했습니다.
-                                    <br>
-                                    bootstrap을 사용해서 빠르게 개발할 수 있었고, media query 사용법이 중요하다는 것을 배웠습니다.
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="https://aquapado.com/coupangeats/" target="_blank" class="btn btn-default">View</a>
-                                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">View</button> -->
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- /모달 -->
-
-            </div>
-            <div class="col-sm-3">
-                <p>브랜드 클론 데모 페이지</p>
-                <img src="img/project3.jpg" class="img-responsive" style="width:100%" alt="Image">
-            </div>
-            <div class="col-sm-3">
-                <p>팀 파이널 프로젝트 React + Java 페이지</p>
-                <img src="img/project4.jpg" class="img-responsive" style="width:100%" alt="Image">
-            </div>
-        </div>
-        <h2>Team Project</h2>
-        <div class="row">
-            <div class="col-sm-4">
-                <p>Mini project1 - 부트캠프 적용 포트폴리오 페이지</p>
-                <img src="img/project5.jpg" class="img-responsive" style="width:100%" alt="Image">
-            </div>
-            <div class="col-sm-4">
-                <p>Mini project2 - 브랜드 클론 데모 페이지</p>
-                <img src="img/project3.jpg" class="img-responsive" style="width:100%" alt="Image">
-            </div>
-            <div class="col-sm-4">
-                <p>Final project 팀 파이널 프로젝트 React + Java 페이지</p>
-                <img src="img/project4.jpg" class="img-responsive" style="width:100%" alt="Image">
-            </div>
+    <div id="section3" class="section">
+        <h1 id="growing-text3">풀스택으로 도약하는 4년 차 개발자 노태효입니다.</h1>
+    </div>
+    
+    <!-- 두 번째 섹션 - 가로 스크롤 -->
+    <div id="horizontal-section">
+        <div class="horizontal-wrapper">
+            <div class="horizontal-item" style="background: cyan;">about me</div>
+            <div class="horizontal-item" style="background: blue;">skills</div>
+            <div class="horizontal-item" style="background: green;">project</div>
+            <div class="horizontal-item" style="background: purple;">work experience</div>
         </div>
     </div>
+    
+    <!-- contact -->
 
-    <div id="contact" class="container-fluid bg-4 text-center">
-        <h3 class="margin">연락처</h3>
-        <p>카톡ID : pado8</p>
-        <p>이메일 : floe9235@gmail.com</p>
+    <!-- 세 번째 섹션 - 마우스 효과 -->
+    <div id="mouse-effect" class="section">
+        <div class="overlay"></div>
+        <h1>마우스 효과 fun section</h1>
     </div>
+    
+    <!-- 네 번째 섹션 - 스크롤 스냅 -->
+    <div id="scroll-snap-container">
+        <div class="snap-section" style="background: pink;">스냅 1</div>
+        <div class="snap-section" style="background: orange;">스냅 2</div>
+        <div class="snap-section" style="background: cyan;">스냅 3</div>
+    </div>
+    
+    <script>
+        // Lenis 부드러운 스크롤 적용
+        const lenis = new Lenis({ duration: 1.2 });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+        
+        // 첫 번째 섹션 - 글자 크기 증가
+        gsap.to("#growing-text1", {
+            scale: 2, opacity: 0,
+            scrollTrigger: {
+                trigger: "#section1",
+                start: "top top",       // 섹션 상단에서 시작
+                end: "+=100%",           // 스크롤 거리 100% 만큼 애니메이션 진행 (필요에 따라 조정)
+                scrub: true,
+                pin: true               // 섹션을 고정하여 텍스트가 최대 크기에 도달할 때까지 스크롤 방지
+            }
+        });
+        gsap.to("#growing-text2", {
+            scale: 1.2, opacity: 2,
+            scrollTrigger: {
+                trigger: "#section2",
+                start: "top top",       // 섹션 상단에서 시작
+                end: "+=100%",           // 스크롤 거리 100% 만큼 애니메이션 진행 (필요에 따라 조정)
+                scrub: true,
+                pin: true               // 섹션을 고정하여 텍스트가 최대 크기에 도달할 때까지 스크롤 방지
+            }
+        });
+        gsap.to("#growing-text3", {
+            scale: 1.2, opacity: 2,
+            scrollTrigger: {
+                trigger: "#section3",
+                start: "top top",       // 섹션 상단에서 시작
+                end: "+=100%",           // 스크롤 거리 100% 만큼 애니메이션 진행 (필요에 따라 조정)
+                scrub: true,
+                pin: true               // 섹션을 고정하여 텍스트가 최대 크기에 도달할 때까지 스크롤 방지
+            }
+        });
 
-    <footer class="container-fluid bg-5 text-center">
-        Copyright &copy; All rights reserved by AQUA
-    </footer>
+        // 두 번째 섹션 - 가로 스크롤
+        gsap.to(".horizontal-wrapper", {
+            x: "-300vw", 
+            scrollTrigger: {
+                trigger: "#horizontal-section",
+                start: "top top",
+                end: "200%",
+                scrub: 1,
+                pin: true
+            }
+        });
 
-
+        // 세 번째 섹션 - 마우스 효과
+        document.addEventListener("mousemove", (event) => {
+            const overlay = document.querySelector(".overlay");
+            overlay.style.background = `radial-gradient(circle at ${event.clientX}px ${event.clientY}px, rgba(255,255,255,0.3) 10%, rgba(0,0,0,0.9) 80%)`;
+        });
+    </script>
 </body>
-
 </html>
