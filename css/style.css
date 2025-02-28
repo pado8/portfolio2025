@@ -1,72 +1,8 @@
-@font-face {
-    font-family: 'jejuH';
-    src: url('../font/제주한라산\(윈도우\).ttf');
-}
-@font-face {
-    font-family: 'jejuG';
-    src: url('../font/제주고딕\(윈도우\).ttf');
-}
-@font-face {
-    font-family: 'jejuM';
-    src: url('../font/제주명조\(윈도우\).ttf');
-}
-
-body {
-    font-family: 'jejuG';
-    line-height: 1.8;
-    color: #f5f6f7;
-}
-
-p {font-size: 16px;}
-
-.margin {margin-bottom: 45px;}
-
-.navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
-}
-.navbar-nav li a:hover {
-    color: #1abc9c !important;
-}
-.bg-1 {
-    background-color: #1abc9c;
-    color: #fff;
-}
-.bg-2 {
-    background-color: #69C1B8;
-    color: #ffffff;
-}
-.bg-3 {
-    background-color: #ffffff;
-    color: #555555;
-}
-.bg-4 {
-    background-color: #B9C7D4;
-    color: #555555;
-}
-.bg-5 {
-    background-color: #12806C;
-    color: #ffffff;
-}
-
-.container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
-}
-
-.container-fluid h3 {
-    font-family: 'jejuH';
-}
-#portfolio p {
-    height: 20px;
-}
-@media screen and (max-width: 767px) {
-    #portfolio p {
-        margin-top: 30px;
-    }
-}
+/* 기본 CSS Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif;}
+body, h1, h2, h3, h4, p, figure, blockquote, dl, dd { margin: 0; }
+body { line-height: 1.5; }
+ol, ul { list-style: none; }
+a { text-decoration: none; color: inherit; }
+img, video { max-width: 100%; height: auto; }
+input, button, textarea, select { font: inherit; }
