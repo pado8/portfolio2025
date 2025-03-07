@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
   <link rel="icon" type="image/png" sizes="196x196" href="img/favicon_196x196.png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script> 
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/locomotive-scroll/4.1.0/locomotive-scroll.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <script type="text/javascript" src="js/main.js"></script>
@@ -30,60 +31,143 @@
       z-index: 1000;
       padding: 10px 20px;
     }
+
     .header-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
+
     .logo a {
       text-decoration: none;
       color: white;
       font-size: 1.5rem;
       font-weight: bold;
     }
+
     .menu ul {
       display: flex;
       list-style: none;
       margin: 0;
       padding: 0;
     }
+
     .menu ul li {
       margin-left: 20px;
     }
+
     .menu ul li a {
       text-decoration: none;
       color: white;
       font-size: 1rem;
       transition: color 0.3s;
     }
+
     .menu ul li a:hover {
       color: #aaa;
     }
 
     /* 기존 스타일 */
-    body { margin: 0; font-family: Arial, sans-serif; overflow-x: hidden; background: black }
-    .section { height: 100vh; display: flex; align-items: center; justify-content: center; }
-    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      background: black
+    }
+
+    .section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     /* 첫 번째 섹션 - 글자 크기 증가 */
-    #section1 { background: black; color: white; font-size: 2rem; padding-top: 60px; }
-    #section2 { background: black; color: white; font-size: 2rem; }
-    #section3 { background: black; color: white; font-size: 2rem; }
-    #growing-text2 {opacity: 0;}
-    #growing-text3 {opacity: 0;}
+    #section1 {
+      background: black;
+      color: white;
+      font-size: 2rem;
+      padding-top: 60px;
+    }
+
+    #section2 {
+      background: black;
+      color: white;
+      font-size: 2rem;
+    }
+
+    #section3 {
+      background: black;
+      color: white;
+      font-size: 2rem;
+    }
+
+    #growing-text2 {
+      opacity: 0;
+    }
+
+    #growing-text3 {
+      opacity: 0;
+    }
+
     /* 두 번째 섹션 - 가로 스크롤 */
-    #horizontal-section { height: 100vh; display: flex; align-items: center; overflow: hidden; }
-    .horizontal-wrapper { display: flex; width: 400vw; }
-    .horizontal-item { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
-    
+    #horizontal-section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .horizontal-wrapper {
+      display: flex;
+      width: 400vw;
+    }
+
+    .horizontal-item {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
     /* 세 번째 섹션 - 마우스 효과 */
-    #mouse-effect { position: relative; background: #222; color: white; overflow: hidden; }
-    .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, rgba(0,0,0,0.9) 80%); pointer-events: none; }
-    
+    #mouse-effect {
+      position: relative;
+      background: #222;
+      color: white;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, rgba(0, 0, 0, 0.9) 80%);
+      pointer-events: none;
+    }
+
     /* 네 번째 섹션 - 스크롤 스냅 */
-    #scroll-snap-container { scroll-snap-type: y mandatory; overflow-y: scroll; height: 100vh; }
-    .snap-section { scroll-snap-align: start; height: 100vh; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+    #scroll-snap-container {
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      height: 100vh;
+    }
+
+    .snap-section {
+      scroll-snap-align: start;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
   </style>
 </head>
+
 <body>
   <!-- Header 추가 -->
   <header>
@@ -94,7 +178,10 @@
       <nav class="menu">
         <ul>
           <li><a href="#section1">Home</a></li>
-          <li><a href="#horizontal-section">About</a></li>
+          <li><a href="#hs_1">About</a></li>
+          <li><a href="#hs_2">기술</a></li>
+          <li><a href="#hs_3">프로젝트</a></li>
+          <li><a href="#hs_4">경력</a></li>
           <li><a href="#mouse-effect">Effect</a></li>
           <li><a href="#scroll-snap-container">Snap</a></li>
         </ul>
@@ -111,36 +198,37 @@
     <div class="basic_box basic_color_5"></div>
     <h1 id="growing-text1">Hello World!</h1>
   </div>
-    
+
   <!-- 두 번째 섹션 - 가로 스크롤 -->
   <div id="horizontal-section">
     <div class="horizontal-wrapper">
-      <div class="horizontal-item" style="background: cyan;">about me</div>
-      <div class="horizontal-item" style="background: blue;">skills</div>
-      <div class="horizontal-item" style="background: green;">project</div>
-      <div class="horizontal-item" style="background: purple;">work experience</div>
+      <div id="hs_1" class="horizontal-item" style="background: cyan;">about me</div>
+      <div id="hs_2" class="horizontal-item" style="background: blue;">skills</div>
+      <div id="hs_3" class="horizontal-item" style="background: green;">project</div>
+      <div id="hs_4" class="horizontal-item" style="background: purple;">work experience</div>
     </div>
   </div>
-    
+
   <!-- 세 번째 섹션 - 마우스 효과 -->
   <div id="mouse-effect" class="section">
     <div class="overlay"></div>
     <h1>마우스 효과 fun section</h1>
   </div>
-    
+
   <!-- 네 번째 섹션 - 스크롤 스냅 -->
   <div id="scroll-snap-container">
     <div class="snap-section" style="background: pink;">스냅 1</div>
     <div class="snap-section" style="background: orange;">스냅 2</div>
     <div class="snap-section" style="background: cyan;">스냅 3</div>
   </div>
-    
+
   <script>
     // Lenis 부드러운 스크롤 적용
     const lenis = new Lenis({ duration: 1.2 });
     function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
-        
+
+
     // 첫 번째 섹션 - 글자 크기 증가
     gsap.to("#growing-text1", {
       scale: 2, opacity: 0,
@@ -155,7 +243,7 @@
 
     // 두 번째 섹션 - 가로 스크롤
     gsap.to(".horizontal-wrapper", {
-      x: "-300vw", 
+      x: "-300vw",
       scrollTrigger: {
         trigger: "#horizontal-section",
         start: "top top",
@@ -165,11 +253,123 @@
       }
     });
 
+    // gsap.to(".horizontal-wrapper", {
+    //   x: "-300vw",
+    //   scrollTrigger: {
+    //     id: "horizontalTrigger",
+    //     trigger: "#horizontal-section",
+    //     start: "top top",
+    //     end: "200%",
+    //     scrub: 1,
+    //     pin: true
+    //   }
+    // });
+
+
+    // gsap.registerPlugin(ScrollTrigger);
+
+    // const sections = document.querySelectorAll(".horizontal-item");
+    // const totalSections = sections.length;
+    // const horizontalWrapper = document.querySelector(".horizontal-wrapper");
+    // const horizontalSection = document.querySelector("#horizontal-section");
+
+    // gsap.to(horizontalWrapper, {
+    //   // 전체 이동 거리는 (아이템 수 - 1) * 100vw
+    //   x: () => `-${(totalSections - 1) * 100}vw`,
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: horizontalSection,
+    //     pin: true,
+    //     scrub: true,
+    //     start: "top top",
+    //     // 전체 스크롤 길이: horizontalSection의 너비 * (아이템 수 - 1)
+    //     end: () => `+=${horizontalSection.offsetWidth * (totalSections - 1)}`,
+    //     snap: {
+    //       // 각 아이템에 해당하는 진행률을 자동 계산 (예: 4개면 0, 0.33, 0.66, 1)
+    //       snapTo: 1 / (totalSections - 1),
+    //       // duration을 0으로 설정해 즉시 스냅되도록 함 (어색한 애니메이션 없이)
+    //       duration: 0,
+    //       ease: "none"
+    //     }
+    //   }
+    // });
+
+
+
+    // gsap.registerPlugin(ScrollTrigger);
+
+    // const sections = document.querySelectorAll(".horizontal-item");
+    // const totalSections = sections.length;
+    // const horizontalWrapper = document.querySelector(".horizontal-wrapper");
+    // const horizontalSection = document.querySelector("#horizontal-section");
+
+    // gsap.to(horizontalWrapper, {
+    //   x: () => `-${(totalSections - 1) * 100}vw`,
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: horizontalSection,
+    //     pin: true,
+    //     scrub: 0.2, // 스크롤 반응 속도를 높이기 위해 낮은 값 사용
+    //     start: "top top",
+    //     end: () => `+=${horizontalSection.offsetWidth * (totalSections - 1)}`,
+    //     snap: {
+    //       snapTo: 1 / (totalSections - 1),
+    //       duration: 0.1,  // 스냅 애니메이션이 아주 빠르게 진행되도록 설정
+    //       ease: "power1.inOut"
+    //     }
+    //   }
+    // });
+
+
+
     // 세 번째 섹션 - 마우스 효과
     document.addEventListener("mousemove", (event) => {
       const overlay = document.querySelector(".overlay");
       overlay.style.background = `radial-gradient(circle at ${event.clientX}px ${event.clientY}px, rgba(255,255,255,0.3) 10%, rgba(0,0,0,0.9) 80%)`;
     });
+
+
+    document.querySelectorAll('header nav a').forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetID = event.target.getAttribute('href');
+
+        // 가로 스크롤 영역 내 아이템인 경우
+        if (targetID.startsWith('#hs_')) {
+          const targetItem = document.querySelector(targetID);
+          const horizontalWrapper = document.querySelector('.horizontal-wrapper');
+          const horizontalSection = document.querySelector('#horizontal-section');
+
+          // 전체 가로 이동 거리 계산
+          const totalHorizontalScroll = horizontalWrapper.scrollWidth - horizontalSection.clientWidth;
+
+          // 대상 아이템의 왼쪽 위치 (horizontalWrapper 내에서의 상대 위치)
+          const targetItemLeft = targetItem.offsetLeft;
+
+          // 대상 아이템의 진행률 (실제 위치 기준)
+          const progress = targetItemLeft / totalHorizontalScroll;
+
+          // ScrollTrigger로 설정된 가로 스크롤 영역의 수직 스크롤 시작/끝 지점 가져오기
+          const trigger = ScrollTrigger.getById("horizontalTrigger");
+          const start = trigger.start;
+          const end = trigger.end;
+
+          // 계산된 진행률에 맞는 수직 스크롤 오프셋
+          const targetScroll = start + progress * (end - start);
+
+          lenis.scrollTo(targetScroll, { offset: 0, duration: 1.2 });
+        } else {
+          // 일반 섹션에 대한 스크롤 처리
+          const targetSection = document.querySelector(targetID);
+          if (targetSection) {
+            lenis.scrollTo(targetSection, { offset: 0, duration: 1.2 });
+          }
+        }
+      });
+    });
+
+
   </script>
 </body>
+
 </html>
